@@ -490,7 +490,16 @@ namespace Synapse.RestClient.User
 
         private void RaiseOnAfterRequest(object body, IRestRequest req, IRestResponse resp)
         {
-            OnAfterRequest(resp.ResponseUri.ToString(), resp.StatusCode, SimpleJson.SerializeObject(body), resp.Content);
+            string uri = "<empty>";
+            string content = "<empt>";
+            var code = System.Net.HttpStatusCode.Unused;
+            if(resp != null)
+            {
+                uri = resp.ResponseUri == null ? "<unknown>" : resp.ResponseUri.ToString();
+                code = resp.StatusCode;
+                content = resp.Content;
+            }
+            OnAfterRequest(uri, code, SimpleJson.SerializeObject(body), content);
         }
 
         private static string ToString(SynapseDocumentType docType)
