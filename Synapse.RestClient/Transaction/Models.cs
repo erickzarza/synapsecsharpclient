@@ -86,4 +86,34 @@ namespace Synapse.RestClient.Transaction
         SYNAPSEUS
     }
 
+    public class Transaction
+    {
+        public string OId { get; set; }
+        public decimal AmountUsd { get; set; }
+        public bool IsDebit { get; set; }
+        public bool IsCredit { get { return !IsDebit; } }
+        public string FromUserOId { get; set; }
+        public string ToUserOId { get; set; }
+        public SynapseTransactionStatusCode LastStatus { get; set; }
+        public string Notes { get; set; }
+        public DateTime CreatedOnUtc { get; set; }
+    
+        public string SuppId { get; internal set; }
+
+        public IList<SynapseTransactionStatus> History { get; set; }
+    }
+    
+    public class TransactionsResponse
+    {
+        public bool IsSuccess { get; set; }
+        public string Message { get; set; }
+        public IList<Transaction> Transactions { get; set; }
+    }
+
+    public class TransactionsRequest
+    {
+        public SynapseUserOAuth OAuth { get; set; }
+        public string NodeOId { get; set; }
+        public string Fingerprint { get; set; }
+    }
 }

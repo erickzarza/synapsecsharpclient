@@ -11,6 +11,7 @@ namespace Synapse.RestClient.Node
     {
         Task<AddACHNodeResponse> AddACHNodeAsync(AddACHNodeRequest req);
         Task<VerifyACHNodeResponse> VerifyACHNodeAsync(VerifyACHNodeRequest req);
+        Task<ACHNodeResponse> FindNodeAsync(ACHNodeRequest req);
         event RequestEventHandler OnAfterRequest;
     }
 
@@ -32,6 +33,48 @@ namespace Synapse.RestClient.Node
             this._api = client;
         }
 
+        public async Task<ACHNodeResponse> FindNodeAsync(ACHNodeRequest msg)
+        {
+            var req = new RestRequest($"node/show", Method.POST);
+            var body = new
+            {
+                login = new
+                {
+                    oauth_key = msg.OAuth.Key
+                },
+                user = new
+                {
+                    fingerprint = msg.Fingerprint
+                }
+            };
+
+            req.AddJsonBody(body);
+            var resp = await this._api.ExecuteTaskAsync(req);
+            RaiseOnAfterRequest(body, req, resp);
+            dynamic data = SimpleJson.DeserializeObject(resp.Content);
+
+            if (resp.IsHttpOk() && data.success)
+            {
+                foreach (var node in data.nodes)
+                {
+                    if (Convert.ToString(node._id["$oid"]) == msg.SynapseNodeId)
+                    {
+                        return new ACHNodeResponse
+                        {
+                            Success = true,
+                            IsActive = node.is_active,
+                            Permission = ParseNodePermission(node.allowed)
+                        };
+                    }
+                }
+            }
+            return new ACHNodeResponse
+            {
+                Success = false,
+                Message = ApiHelper.TryGetMessage(data)
+            };
+
+        }
         public async Task<AddACHNodeResponse> AddACHNodeAsync(AddACHNodeRequest msg)
         {
             var req = new RestRequest("node/add", Method.POST);

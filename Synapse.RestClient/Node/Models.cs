@@ -64,4 +64,19 @@ namespace Synapse.RestClient.Node
         public bool IsActive { get; set; }
     }
 
+    public class ACHNodeRequest
+    {
+        public string SynapseNodeId { get; set; }
+        public SynapseUserOAuth OAuth { get; set; }
+        public string Fingerprint { get; set; }
+    }
+
+    public class ACHNodeResponse
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; }
+        public SynapseNodePermission Permission { get; set; }
+        public bool IsActive { get; set; }
+    }
+
 }
