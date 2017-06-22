@@ -498,6 +498,10 @@ namespace Synapse.RestClient.User
                 uri = resp.ResponseUri == null ? "<unknown>" : resp.ResponseUri.ToString();
                 code = resp.StatusCode;
                 content = resp.Content;
+                if(resp.ErrorException != null && String.IsNullOrEmpty(content))
+                {
+                    content = resp.ErrorException.ToString();
+                }
             }
             OnAfterRequest?.Invoke(uri, code, SimpleJson.SerializeObject(body), content);
         }
