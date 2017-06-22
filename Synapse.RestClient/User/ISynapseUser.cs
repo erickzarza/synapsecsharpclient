@@ -499,7 +499,7 @@ namespace Synapse.RestClient.User
                 code = resp.StatusCode;
                 content = resp.Content;
             }
-            OnAfterRequest(uri, code, SimpleJson.SerializeObject(body), content);
+            OnAfterRequest?.Invoke(uri, code, SimpleJson.SerializeObject(body), content);
         }
 
         private static string ToString(SynapseDocumentType docType)
