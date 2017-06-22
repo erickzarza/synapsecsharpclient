@@ -9,6 +9,8 @@ namespace Synapse.RestClient
 {
     using User;
     using Node;
+    using System.Net;
+
     public class SynapseRestClientFactory
     {
         private SynapseApiCredentials _creds;
@@ -17,6 +19,8 @@ namespace Synapse.RestClient
         {
             this._creds = credentials;
             this._baseUrl = baseUrl;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
         }
 
         public ISynapseUserApiClient CreateUserClient()
