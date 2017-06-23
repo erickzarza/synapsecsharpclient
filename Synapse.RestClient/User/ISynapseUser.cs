@@ -399,7 +399,7 @@ namespace Synapse.RestClient.User
                 {
                     _id = id,
                     fingerprint = msg.Fingerprint,
-                    ip = msg.IpAddress,
+                    ip = String.IsNullOrEmpty(msg.IpAddress) ? "10.0.0.1" : msg.IpAddress,
                     update = update
                 },
 
