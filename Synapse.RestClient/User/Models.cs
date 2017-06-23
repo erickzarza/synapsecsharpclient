@@ -173,6 +173,7 @@ namespace Synapse.RestClient.User
         public DateTime DateJoinedUtc { get; set; }
         public string SupplementalId { get; set; }
         public SynapsePermission Permission { get; set; }
+        public string RefreshToken { get; set; }
     }
 
     public class UpdateUserRequest
