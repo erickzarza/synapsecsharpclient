@@ -56,7 +56,7 @@ namespace Synapse.RestClient.User
                 logins = new[] {
                     new {
                             email = msg.EmailAddress,
-                            read_only = true
+                            read_only = false
                         }
                 },
                 legal_names = new[]
@@ -341,6 +341,7 @@ namespace Synapse.RestClient.User
                         OId = user._id["$oid"],
                         DateJoinedUtc = ApiHelper.UnixTimestampInMillisecondsToUtc(Convert.ToInt64(user.extra.date_joined["$date"])),
                         Permission = ParsePermission(user.permission),
+                        RefreshToken = user.refresh_token,
                         SupplementalId = ApiHelper.PropertyExists(user.extra, "supp_id") ? user.extra.supp_id : String.Empty,
                     });
                 }
@@ -398,7 +399,7 @@ namespace Synapse.RestClient.User
                 {
                     _id = id,
                     fingerprint = msg.Fingerprint,
-                    ip = msg.IpAddress,
+                    ip = String.IsNullOrEmpty(msg.IpAddress) ? "10.0.0.1" : msg.IpAddress,
                     update = update
                 },
 
@@ -451,7 +452,7 @@ namespace Synapse.RestClient.User
                 user = new
                 {
                     _id = _id,
-                    ip = msg.IPAddress,
+                    ip = String.IsNullOrEmpty(msg.IPAddress) ? "10.0.0.1" : msg.IPAddress,
                     fingerprint = msg.Fingerprint
                 },
 
@@ -498,6 +499,10 @@ namespace Synapse.RestClient.User
                 uri = resp.ResponseUri == null ? "<unknown>" : resp.ResponseUri.ToString();
                 code = resp.StatusCode;
                 content = resp.Content;
+                if(resp.ErrorException != null && String.IsNullOrEmpty(content))
+                {
+                    content = resp.ErrorException.ToString();
+                }
             }
             OnAfterRequest?.Invoke(uri, code, SimpleJson.SerializeObject(body), content);
         }
