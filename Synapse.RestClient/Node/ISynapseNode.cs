@@ -162,7 +162,7 @@ namespace Synapse.RestClient.Node
             var resp = await this._api.ExecuteTaskAsync(req);
             RaiseOnAfterRequest(body, req, resp);
             dynamic data = SimpleJson.DeserializeObject(resp.Content);
-            if (resp.IsHttpOk() && data.success)
+            if (resp.IsHttpOk())
             {
                 if (data.nodes.Count != 1) throw new InvalidOperationException("Nodes count was expected to be 1");
                 var node = data.nodes[0];
