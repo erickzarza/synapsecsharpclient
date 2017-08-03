@@ -164,8 +164,9 @@ namespace Synapse.RestClient.Node
             dynamic data = SimpleJson.DeserializeObject(resp.Content);
             if (resp.IsHttpOk())
             {
-                if (data.nodes.Count != 1) throw new InvalidOperationException("Nodes count was expected to be 1");
-                var node = data.nodes[0];
+                if (data == null) throw new InvalidOperationException("Expected the response to contain json data");
+                if (data.node == null) throw new InvalidOperationException("Expected a node field in response");
+                var node = data.node;
                 return new VerifyACHNodeResponse
                 {
                     Success = true,
