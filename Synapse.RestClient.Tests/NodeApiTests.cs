@@ -35,7 +35,7 @@ namespace Synapse.RestClient
             {
                 OAuth = user.OAuth,
                 AccountClass = SynapseNodeClass.Checking,
-                AccountNumber = "1234",
+                AccountNumber = "12345678",
                 RoutingNumber = "021000021", //Chase NYC
                 AccountType = SynapseNodeType.Personal,
                 Fingerprint = Fingerprint,
@@ -58,7 +58,7 @@ namespace Synapse.RestClient
             {
                 OAuth = user.OAuth,
                 AccountClass = SynapseNodeClass.Checking,
-                AccountNumber = "1234",
+                AccountNumber = "12345678",
                 RoutingNumber = "123456",
                 AccountType = SynapseNodeType.Personal,
                 Fingerprint = Fingerprint,
@@ -81,7 +81,7 @@ namespace Synapse.RestClient
             {
                 OAuth = user.OAuth,
                 AccountClass = SynapseNodeClass.Checking,
-                AccountNumber = "1234",
+                AccountNumber = "12345678",
                 RoutingNumber = "021000021", //Chase NYC
                 AccountType = SynapseNodeType.Personal,
                 Fingerprint = Fingerprint,

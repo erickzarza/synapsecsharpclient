@@ -165,13 +165,12 @@ namespace Synapse.RestClient.Node
             if (resp.IsHttpOk())
             {
                 if (data == null) throw new InvalidOperationException("Expected the response to contain json data");
-                if (data.node == null) throw new InvalidOperationException("Expected a node field in response");
-                var node = data.node;
+                var node = data;
                 return new VerifyACHNodeResponse
                 {
                     Success = true,
-                    IsActive = node.is_active,
-                    Permission = ParseNodePermission(node.allowed),
+                    IsActive = data.is_active,
+                    Permission = ParseNodePermission(data.allowed),
                     Message = ApiHelper.TryGetMessage(data),
                     SynapseNodeOId = node._id["$oid"]
                 };
