@@ -30,8 +30,6 @@ namespace Synapse.RestClient.Transaction
 
         public string FeeNodeId {get; set;}
 		public bool SameDay { get; set; }
-
-
 	}
 
     public class AddTransactionResponse
