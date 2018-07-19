@@ -68,8 +68,9 @@ namespace Synapse.RestClient.Transaction
                         supp_id = msg.LocalId,
                         note = msg.Note,
                         ip = String.IsNullOrEmpty(msg.IpAddress) ? "10.0.0.1" : msg.IpAddress,
-                        process_on = msg.ProcessOn
-                    }
+                        process_on = msg.ProcessOn,
+						same_day = msg.SameDay
+					}
                 }
                 
             };

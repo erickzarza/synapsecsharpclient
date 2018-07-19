@@ -29,9 +29,10 @@ namespace Synapse.RestClient.Transaction
         public string FeeNote {get; set;}
 
         public string FeeNodeId {get; set;}
+		public bool SameDay { get; set; }
 
-        
-    }
+
+	}
 
     public class AddTransactionResponse
     {
