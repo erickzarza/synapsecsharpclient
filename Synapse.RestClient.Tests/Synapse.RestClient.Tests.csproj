@@ -70,12 +70,6 @@
     <Compile Include="UserApiTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Synapse.RestClient\Synapse.RestClient.csproj">
-      <Project>{7f9f8115-80d5-45e4-b0cf-921d3d0e1296}</Project>
-      <Name>Synapse.RestClient</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -83,6 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Support\Resources\Base64Attachment.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Synapse.RestClient\Synapse.RestClient.csproj">
+      <Project>{7f9f8115-80d5-45e4-b0cf-921d3d0e1296}</Project>
+      <Name>Synapse.RestClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

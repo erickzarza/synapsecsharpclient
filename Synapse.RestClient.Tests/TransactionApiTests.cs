@@ -58,7 +58,7 @@ namespace Synapse.RestClient
                 await
                     this._api.AddTransactionAsync(new AddTransactionRequest()
                     {
-                        Amount = 109.10m,
+                        Amount = 109.50m,
                         Currency = SynapseCurrencies.USD,
                         Fingerprint = Fingerprint,
                         FromNodeType = SynapseNodeTransactionType.ACHUS,
@@ -70,6 +70,7 @@ namespace Synapse.RestClient
                         OAuth = this.Sender.OAuth,
                         ProcessOn = 0,
                         Note = "Offer ALKJ-JA98",
+						SameDay = false
                     });
 
             trans.Success.ShouldBeTrue();
