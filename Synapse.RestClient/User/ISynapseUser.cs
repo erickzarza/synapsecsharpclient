@@ -517,7 +517,7 @@ namespace Synapse.RestClient.User
                 return "PASSPORT";
             } else if(docType == SynapseDocumentType.PersonalIdentification)
             {
-                return "PERSONAL_IDENTIFICATION";
+                return "GOVT_ID";
             } else if (docType == SynapseDocumentType.DriversLicense)
             {
                 return "DRIVERS_LICENSE";
