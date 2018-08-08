@@ -512,16 +512,20 @@ namespace Synapse.RestClient.User
             if(docType == SynapseDocumentType.SSN)
             {
                 return "SSN";
-            } else if(docType == SynapseDocumentType.Passport)
+            }
+			else if(docType == SynapseDocumentType.Passport)
             {
-                return "PASSPORT";
-            } else if(docType == SynapseDocumentType.PersonalIdentification)
+                return "GOVT_ID_INT";
+            }
+			else if(docType == SynapseDocumentType.PersonalIdentification)
             {
                 return "PERSONAL_IDENTIFICATION";
-            } else if (docType == SynapseDocumentType.DriversLicense)
+            }
+			else if (docType == SynapseDocumentType.DriversLicense)
             {
-                return "DRIVERS_LICENSE";
-            } else if(docType == SynapseDocumentType.None)
+                return "GOVT_ID";
+            }
+			else if(docType == SynapseDocumentType.None)
             {
                 return "NONE";
             }
