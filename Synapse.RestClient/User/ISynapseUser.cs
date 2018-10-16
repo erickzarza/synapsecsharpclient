@@ -400,7 +400,7 @@ namespace Synapse.RestClient.User
                 {
                     _id = id,
                     fingerprint = msg.Fingerprint,
-                    ip = String.IsNullOrEmpty(msg.IpAddress) ? "10.0.0.1" : msg.IpAddress,
+                    ip = String.IsNullOrEmpty(msg.IpAddress) ? "127.0.0.1" : msg.IpAddress,
                     update = update
                 },
 
@@ -453,7 +453,7 @@ namespace Synapse.RestClient.User
                 user = new
                 {
                     _id = _id,
-                    ip = String.IsNullOrEmpty(msg.IPAddress) ? "10.0.0.1" : msg.IPAddress,
+                    ip = String.IsNullOrEmpty(msg.IPAddress) ? "127.0.0.1" : msg.IPAddress,
                     fingerprint = msg.Fingerprint
                 },
 

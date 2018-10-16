@@ -66,7 +66,7 @@ namespace Synapse.RestClient
                         ToNodeType = SynapseNodeTransactionType.SYNAPSEUS,
                         ToNodeId = "55e9da8a86c2733ede53dac8",
                         LocalId = "1234",
-                        IpAddress = "10.0.0.1",
+                        IpAddress = "127.0.0.1",
                         OAuth = this.Sender.OAuth,
                         ProcessOn = 0,
                         Note = "Offer ALKJ-JA98",
