@@ -67,13 +67,13 @@ namespace Synapse.RestClient.Transaction
                     {
                         supp_id = msg.LocalId,
                         note = msg.Note,
-                        ip = String.IsNullOrEmpty(msg.IpAddress) ? "127.0.0.1" : msg.IpAddress,
+                        ip = "10.0.0.1",
                         process_on = msg.ProcessOn,
 						same_day = msg.SameDay
 					}
                 }
-                
-            };
+				//String.IsNullOrEmpty(msg.IpAddress) ? "10.0.0.1" : msg.IpAddress,
+			};
             if(msg.Fee > 0)
             {
                 body.fees = new[] {new {fee = msg.Fee, note = msg.Note, to = new {id = msg.FeeNodeId}}};
