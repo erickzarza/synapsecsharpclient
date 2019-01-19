@@ -63,7 +63,7 @@ namespace Synapse.RestClient
                         Fingerprint = Fingerprint,
                         FromNodeType = SynapseNodeTransactionType.ACHUS,
                         FromNodeId = SenderNode.SynapseNodeOId,
-                        ToNodeType = SynapseNodeTransactionType.SYNAPSEUS,
+                        ToNodeType = SynapseNodeTransactionType.DEPOSITUS,
                         ToNodeId = "55e9da8a86c2733ede53dac8",
                         LocalId = "1234",
                         IpAddress = "10.0.0.1",

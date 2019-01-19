@@ -226,8 +226,8 @@ namespace Synapse.RestClient.Transaction
         {
             if(nodeType == SynapseNodeTransactionType.ACHUS)
                 return "ACH-US";
-            else if(nodeType == SynapseNodeTransactionType.SYNAPSEUS)
-                return "SYNAPSE-US";
+            else if(nodeType == SynapseNodeTransactionType.DEPOSITUS)
+                return "DEPOSIT-US";
             throw new InvalidOperationException(String.Format("SynapseNodeTransactionType {0} unknown", nodeType));
         }
         private void RaiseOnAfterRequest(object body, IRestRequest req, IRestResponse resp)

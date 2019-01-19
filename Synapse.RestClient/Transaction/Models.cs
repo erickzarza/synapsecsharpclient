@@ -82,7 +82,7 @@ namespace Synapse.RestClient.Transaction
     public enum SynapseNodeTransactionType
     {
         ACHUS,
-        SYNAPSEUS
+        DEPOSITUS
     }
 
     public class Transaction
