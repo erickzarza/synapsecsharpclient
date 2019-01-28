@@ -73,8 +73,8 @@ namespace Synapse.RestClient.User
                 extra = new
                 {
                     supp_id = msg.LocalId,
-                    is_business = false
-
+                    is_business = false,
+					cip_tag = msg.Country == "US" ? "1" : "2"
 				}
             };
             req.AddJsonBody(body);

@@ -15,7 +15,8 @@ namespace Synapse.RestClient.User
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
-    }
+		public string Country { get; set; }
+	}
 
     public class SynapseUserOAuth
     {
