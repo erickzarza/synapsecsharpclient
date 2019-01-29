@@ -47,8 +47,8 @@ namespace Synapse.RestClient.User
         public string PostalCode { get; set; }
         public string CountryCode { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public SynapseDocumentType DocumentType { get; set; }
-        public string DocumentValue { get; set; }
+        public SynapseDocumentType VirtualDocumentType { get; set; }
+        public string VirtualDocumentValue { get; set; }
         public string Fingerprint { get; set; }
     }
 
