@@ -133,13 +133,8 @@ namespace Synapse.RestClient.User
                         address_street1 = msg.Address1,
                         address_postal_code = msg.PostalCode,
                         address_country_code = msg.CountryCode,
-						virtual_docs = new
-						{
-							document_value = msg.VirtualDocumentValue,
-							document_type = ToString(msg.VirtualDocumentType)
-						}
-
-						
+                        document_value = msg.DocumentValue,
+                        document_type = ToString(msg.DocumentType)
                     },
                     fingerprint = msg.Fingerprint
                 }
@@ -520,8 +515,7 @@ namespace Synapse.RestClient.User
             }
 			else if(docType == SynapseDocumentType.Passport)
             {
-				return "PASSPORT";
-				//return "GOVT_ID_INT";
+                return "GOVT_ID_INT";
             }
 			else if(docType == SynapseDocumentType.PersonalIdentification)
             {

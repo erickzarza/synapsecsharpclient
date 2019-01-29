@@ -34,8 +34,7 @@ namespace Synapse.RestClient
                 PhoneNumber = "555-123-1233",
                 IpAddress = IpAddress,
                 LocalId = "LocalId",
-                Fingerprint = Fingerprint,
-				Country = "US"
+                Fingerprint = Fingerprint
             };
         }
 
@@ -51,8 +50,8 @@ namespace Synapse.RestClient
                 PostalCode = "11215",
                 CountryCode = "US",
                 DateOfBirth = DateTime.Parse("10/19/1979").Date,
-                VirtualDocumentType = SynapseDocumentType.SSN,
-				VirtualDocumentValue = this.Person.DocumentValue,
+                DocumentType = SynapseDocumentType.SSN,
+                DocumentValue = this.Person.DocumentValue,
                 Fingerprint = Fingerprint,
                 FirstName = this.Person.FirstName,
                 LastName = this.Person.LastName
