@@ -106,3 +106,7 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog.htm
 EWA.sln.DotSettings
+.vs/Synapse/v15/Server/sqlite3/db.lock
+.vs/Synapse/v15/Server/sqlite3/storage.ide
+.vs/Synapse/v15/Server/sqlite3/storage.ide-shm
+.vs/Synapse/v15/Server/sqlite3/storage.ide-wal
