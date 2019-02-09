@@ -48,7 +48,18 @@ namespace Synapse.RestClient.User
             result.HasKBAQuestions.ShouldBeFalse();
         }
 
-        [TestMethod]
+		[TestMethod]
+		public async Task AddsDocsSuccessfully()
+		{
+			var user = await this._user.CreateUserAsync(this.CreateUserRequest());
+			var result = await this._user.AddDocsAsync(this.CreateAddDocsRequest(user.OAuth));
+
+			result.ShouldNotBeNull();
+			result.Success.ShouldBeTrue();
+			//result.Permission.ShouldEqual(SynapsePermission.ReceiveOnly); //TODO: Discuss		
+		}
+
+		[TestMethod]
         public async Task AddsDocumentation()
         {
             var user = await this._user.CreateUserAsync(this.CreateUserRequest());

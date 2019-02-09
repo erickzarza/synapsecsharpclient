@@ -61,7 +61,36 @@ namespace Synapse.RestClient.User
         public SynapsePermission Permission { get; set; }
     }
 
-    public class VerifyKYCInfoRequest
+	public class AddDocsRequest
+	{
+		public SynapseUserOAuth OAuth { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }		
+		public string EmailAddress { get; set; }	
+		public string IpAddress { get; set; }	
+		public string PhoneNumber { get; set; }
+		public string Address1 { get; set; }
+		public string Address2 { get; set; }
+		public string City { get; set; }
+		public string State { get; set; }
+		public string PostalCode { get; set; }
+		public string CountryCode { get; set; }
+		public DateTime DateOfBirth { get; set; }
+		public SynapseDocumentType VirtualDocumentType { get; set; }
+		public string VirtualDocumentValue { get; set; }
+		public SynapseDocumentType PhysicalDocumentType { get; set; }
+		public string PhysicalDocumentValue { get; set; }
+		public string Fingerprint { get; set; }
+	}
+
+	public class AddDocsResponse
+	{
+		public bool Success { get; set; }
+		public string Message { get; set; }	
+		public SynapsePermission Permission { get; set; }
+	}
+
+	public class VerifyKYCInfoRequest
     {
         public SynapseUserOAuth OAuth { get; set; }
         public string QuestionSetId { get; set; }
@@ -119,8 +148,10 @@ namespace Synapse.RestClient.User
         SSN = 1,
         Passport = 2,
         PersonalIdentification = 3,
-        DriversLicense = 4
-    }
+        DriversLicense = 4,
+		GovtId = 5,
+		GovtIdInt = 6
+	}
     public enum SynapsePermission
     {
         Unverified,

@@ -28,9 +28,9 @@ namespace Synapse.RestClient
         {
             return new CreateUserRequest
             {
-                EmailAddress = this.Person.EmailAddress,
-                FirstName = this.Person.FirstName,
-                LastName = this.Person.EmailAddress,
+                EmailAddress = "we@wero.com",
+				FirstName = "Wero",
+                LastName = "We",
                 PhoneNumber = "555-123-1233",
                 IpAddress = IpAddress,
                 LocalId = "LocalId",
@@ -43,13 +43,13 @@ namespace Synapse.RestClient
             return new AddKycRequest
             {
                 OAuth = oauth,
-                Address1 = "1428 Elm Street",
-                Address2 = "#4",
-                City = "Brooklyn",
-                State = "New York",
-                PostalCode = "11215",
-                CountryCode = "US",
-                DateOfBirth = DateTime.Parse("10/19/1979").Date,
+				Address1 = "1829 E Gemini Dr",
+				Address2 = "#4",
+				City = "Tempe",
+				State = "Arizona",
+				PostalCode = "85283",
+				CountryCode = "US",
+				DateOfBirth = DateTime.Parse("10/19/1979").Date,
                 DocumentType = SynapseDocumentType.SSN,
                 DocumentValue = this.Person.DocumentValue,
                 Fingerprint = Fingerprint,
@@ -57,8 +57,32 @@ namespace Synapse.RestClient
                 LastName = this.Person.LastName
             };
         }
-
-        protected AddDocRequest CreateAddDocRequest(SynapseUserOAuth oauth)
+		protected AddDocsRequest CreateAddDocsRequest(SynapseUserOAuth oauth)
+		{
+			return new AddDocsRequest
+			{
+				OAuth = oauth,
+				FirstName = "Wero",
+				LastName = "We",
+				EmailAddress = "we@wero.com",
+				IpAddress = IpAddress,
+				PhoneNumber = "555-123-1233",
+				Address1 = "1829 E Gemini Dr",
+				Address2 = "#4",
+				City = "Tempe",
+				State = "Arizona",
+				PostalCode = "85283",
+				CountryCode = "US",
+				DateOfBirth = DateTime.Parse("10/19/1979").Date,
+				VirtualDocumentType = SynapseDocumentType.SSN,
+				VirtualDocumentValue = this.Person.DocumentValue,
+				PhysicalDocumentType = SynapseDocumentType.GovtId,
+				PhysicalDocumentValue = "data:text/csv;base64,SUQs==",//GetTextResource("Base64Attachment.txt"),
+				Fingerprint = Fingerprint,
+				
+			};	
+		}
+		protected AddDocRequest CreateAddDocRequest(SynapseUserOAuth oauth)
         {
             return new AddDocRequest
             {
